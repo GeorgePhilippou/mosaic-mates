@@ -1,0 +1,10 @@
+{
+  "name": "Mosaic Mates",
+  "short_name": "Mosaic Mates",
+  "description": "A warm block puzzle for one or two players.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#171528",
+  "theme_color": "#171528",
+  "orientation": "portrait-primary"
+}

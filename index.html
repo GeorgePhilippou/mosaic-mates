@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#171528">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Mosaic Mates">
+  <title>Mosaic Mates</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23171528'/><circle cx='23' cy='23' r='10' fill='%2369e3bd'/><circle cx='41' cy='23' r='10' fill='%23ffc866'/><circle cx='23' cy='41' r='10' fill='%23ff7f72'/><circle cx='41' cy='41' r='10' fill='%23b784f7'/></svg>">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css?v=0.2">
+</head>
+<body>
+  <main class="app-shell">
+    <section id="home" class="screen active">
+      <div class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <p class="eyebrow">A puzzle for two</p>
+      <h1>Mosaic <span>Mates</span></h1>
+      <p class="lede">Make space. Make patterns. Make it together.</p>
+
+      <div class="mode-grid">
+        <button class="mode-card coral" data-mode="solo">
+          <span class="mode-icon">✦</span><span><strong>Solo Glow</strong><small>Relax, plan, chase a high score</small></span>
+        </button>
+        <button class="mode-card violet" data-mode="coop">
+          <span class="mode-icon">∞</span><span><strong>Shared Spark</strong><small>Take turns on one board</small></span>
+        </button>
+        <button class="mode-card blue" data-mode="race">
+          <span class="mode-icon">⚡</span><span><strong>Score Race</strong><small>One board, alternating turns</small></span>
+        </button>
+      </div>
+      <button id="onlinePreview" class="online-card">
+        <span><strong>Two iPads</strong><small>Create a private room and play together</small></span><b>ONLINE</b>
+      </button>
+      <p class="version">Prototype 0.2</p>
+    </section>
+
+    <section id="game" class="screen">
+      <header class="game-header">
+        <button id="backButton" class="icon-button" aria-label="Back to modes">‹</button>
+        <div><p id="modeLabel" class="eyebrow">Solo Glow</p><h2 id="turnLabel">Your move</h2></div>
+        <button id="restartButton" class="icon-button restart" aria-label="Restart game">↻</button>
+      </header>
+
+      <div class="score-strip">
+        <div><small>Score</small><strong id="score">0</strong></div>
+        <div class="combo"><small>Glow</small><strong id="combo">—</strong></div>
+        <div><small>Best</small><strong id="best">0</strong></div>
+      </div>
+
+      <div id="playerStrip" class="player-strip hidden">
+        <div id="playerOne" class="player active"><i></i><span>George</span><b>0</b></div>
+        <span class="versus">together</span>
+        <div id="playerTwo" class="player"><i></i><span>Megan</span><b>0</b></div>
+      </div>
+      <div id="roomStatus" class="room-status hidden"><span id="roomStatusText">Connecting…</span><button id="copyRoomCode">COPY CODE</button></div>
+
+      <div class="board-wrap">
+        <div id="board" class="board" role="grid" aria-label="8 by 8 puzzle board"></div>
+        <div id="toast" class="toast" aria-live="polite"></div>
+      </div>
+
+      <div class="tray-heading"><span>Choose a shape</span><small id="hint">Tap a shape, then tap the board</small></div>
+      <div id="tray" class="tray" aria-label="Available shapes"></div>
+      <button id="deselect" class="deselect hidden">Cancel selection</button>
+    </section>
+
+    <div id="onlineModal" class="modal" aria-hidden="true">
+      <div class="modal-card online-setup">
+        <button id="closeOnline" class="modal-close" aria-label="Close">×</button>
+        <div class="modal-icon">↗</div>
+        <p class="eyebrow">Two iPads</p>
+        <h2>Play in one room</h2>
+        <p>One of you creates the room. The other enters the six-letter code.</p>
+        <div class="online-tabs">
+          <button class="active" data-online-action="create">Create</button>
+          <button data-online-action="join">Join</button>
+        </div>
+        <label id="roomCodeField" class="room-code-field hidden">Room code
+          <input id="roomCodeInput" maxlength="6" inputmode="text" autocomplete="off" autocapitalize="characters" placeholder="ROOM CODE">
+        </label>
+        <p id="onlineError" class="online-error" role="alert"></p>
+        <button id="onlineStart" class="primary-button">Create private room</button>
+      </div>
+    </div>
+
+    <div id="modal" class="modal" aria-hidden="true">
+      <div class="modal-card">
+        <div id="modalIcon" class="modal-icon">✦</div>
+        <p id="modalEyebrow" class="eyebrow">Round complete</p>
+        <h2 id="modalTitle">A lovely run</h2>
+        <p id="modalBody"></p>
+        <button id="playAgain" class="primary-button">Play again</button>
+        <button id="modalHome" class="text-button">Choose another mode</button>
+      </div>
+    </div>
+  </main>
+  <script src="mosaic-firebase.js"></script>
+  <script src="app.js?v=0.2"></script>
+</body>
+</html>
