@@ -10,7 +10,7 @@
   <title>Mosaic Mates</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23171528'/><circle cx='23' cy='23' r='10' fill='%2369e3bd'/><circle cx='41' cy='23' r='10' fill='%23ffc866'/><circle cx='23' cy='41' r='10' fill='%23ff7f72'/><circle cx='41' cy='41' r='10' fill='%23b784f7'/></svg>">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="styles.css?v=0.2">
+  <link rel="stylesheet" href="styles.css?v=0.3">
 </head>
 <body>
   <main class="app-shell">
@@ -34,7 +34,7 @@
       <button id="onlinePreview" class="online-card">
         <span><strong>Two iPads</strong><small>Create a private room and play together</small></span><b>ONLINE</b>
       </button>
-      <p class="version">Prototype 0.2</p>
+      <p class="version">Prototype 0.3</p>
     </section>
 
     <section id="game" class="screen">
@@ -55,7 +55,10 @@
         <span class="versus">together</span>
         <div id="playerTwo" class="player"><i></i><span>Megan</span><b>0</b></div>
       </div>
-      <div id="roomStatus" class="room-status hidden"><span id="roomStatusText">Connecting…</span><button id="copyRoomCode">COPY CODE</button></div>
+      <div id="roomStatus" class="room-status hidden">
+        <span id="roomStatusText">Connecting…</span>
+        <span class="room-actions"><button id="copyRoomCode">COPY CODE</button><button id="shareRoom">SHARE INVITE</button></span>
+      </div>
 
       <div class="board-wrap">
         <div id="board" class="board" role="grid" aria-label="8 by 8 puzzle board"></div>
@@ -98,6 +101,6 @@
     </div>
   </main>
   <script src="mosaic-firebase.js"></script>
-  <script src="app.js?v=0.2"></script>
+  <script src="app.js?v=0.3"></script>
 </body>
 </html>

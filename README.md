@@ -2,7 +2,7 @@
 
 An original, iPad-first block-placement puzzle inspired by the satisfying spatial planning of modern block games.
 
-## Prototype 0.2
+## Prototype 0.3
 
 - 8×8 board and three-shape tray
 - Tap a shape, then tap its top-left board position
@@ -11,6 +11,7 @@ An original, iPad-first block-placement puzzle inspired by the satisfying spatia
 - Solo Glow, Shared Spark, and Score Race modes
 - Local best scores and offline PWA shell
 - Private-room host/join interface and synchronized online game engine
+- Native iPad share sheet invitations with direct room links
 
 ## Product direction
 
