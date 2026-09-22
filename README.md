@@ -2,7 +2,7 @@
 
 An original, iPad-first block-placement puzzle inspired by the satisfying spatial planning of modern block games.
 
-## Prototype 0.6
+## Prototype 0.7
 
 - 8×8 board and three-shape tray
 - Drag shapes directly onto the board, with centred tap placement as a fallback
@@ -14,6 +14,7 @@ An original, iPad-first block-placement puzzle inspired by the satisfying spatia
 - Native iPad share sheet invitations with direct room links
 - Three-minute simultaneous online score race with live faded opponent board
 - Full-screen iPad landscape layout with no gameplay scrolling
+- Captured, lifted touch dragging with forgiving board-edge placement
 
 ## Product direction
 
