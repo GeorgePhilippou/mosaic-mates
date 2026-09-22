@@ -10,7 +10,7 @@
   <title>Mosaic Mates</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23171528'/><circle cx='23' cy='23' r='10' fill='%2369e3bd'/><circle cx='41' cy='23' r='10' fill='%23ffc866'/><circle cx='23' cy='41' r='10' fill='%23ff7f72'/><circle cx='41' cy='41' r='10' fill='%23b784f7'/></svg>">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="styles.css?v=0.8">
+  <link rel="stylesheet" href="styles.css?v=0.9">
 </head>
 <body>
   <main class="app-shell">
@@ -34,7 +34,7 @@
       <button id="onlinePreview" class="online-card">
         <span><strong>Two iPads</strong><small>Create a private room and play together</small></span><b>ONLINE</b>
       </button>
-      <p class="version">Prototype 0.8</p>
+      <p class="version">Prototype 0.9</p>
     </section>
 
     <section id="game" class="screen">
@@ -56,8 +56,8 @@
         <div id="playerTwo" class="player"><i></i><span>Megan</span><b>0</b></div>
       </div>
       <div id="roomStatus" class="room-status hidden">
-        <span id="roomStatusText">Connecting…</span>
-        <span class="room-actions"><button id="copyRoomCode">COPY CODE</button><button id="shareRoom">SHARE INVITE</button></span>
+        <div class="room-code-display"><small>ROOM CODE</small><strong id="roomCodeDisplay">------</strong></div>
+        <div class="room-status-side"><span id="roomStatusText">Connecting…</span><span class="room-actions"><button id="copyRoomCode">COPY</button><button id="shareRoom">SHARE INVITE</button></span></div>
       </div>
 
       <div id="boardsStage" class="boards-stage">
@@ -77,6 +77,7 @@
       <div class="tray-heading"><span>Choose a shape</span><small id="hint">Drag a shape onto the board</small></div>
       <div id="tray" class="tray" aria-label="Available shapes"></div>
       <button id="deselect" class="deselect hidden">Cancel selection</button>
+      <div id="countdownOverlay" class="countdown-overlay" aria-live="assertive" aria-hidden="true"><small id="countdownMode">SCORE RACE</small><strong id="countdownValue">READY</strong></div>
     </section>
 
     <div id="onlineModal" class="modal" aria-hidden="true">
@@ -93,6 +94,7 @@
         <label id="roomCodeField" class="room-code-field hidden">Room code
           <input id="roomCodeInput" maxlength="6" inputmode="text" autocomplete="off" autocapitalize="characters" placeholder="ROOM CODE">
         </label>
+        <fieldset id="matchTypeField" class="match-type-field"><legend>Match type</legend><button type="button" class="active" data-match-type="timed"><strong>3-minute race</strong><small>Highest score wins</small></button><button type="button" data-match-type="survival"><strong>Last move wins</strong><small>Play until someone is stuck</small></button></fieldset>
         <p id="onlineError" class="online-error" role="alert"></p>
         <button id="onlineStart" class="primary-button">Create private room</button>
       </div>
@@ -110,6 +112,6 @@
     </div>
   </main>
   <script src="mosaic-firebase.js"></script>
-  <script src="app.js?v=0.8"></script>
+  <script src="app.js?v=0.9"></script>
 </body>
 </html>

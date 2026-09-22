@@ -4,11 +4,12 @@
     "rooms": { "$room": {
       ".read": "auth != null && $room.matches(/^[A-HJ-NP-Z2-9]{6}$/) && (!data.exists() || data.child('status').val() == 'waiting' || data.child('hostUid').val() == auth.uid || data.child('guestUid').val() == auth.uid)",
       ".write": "auth != null && $room.matches(/^[A-HJ-NP-Z2-9]{6}$/) && !data.exists() && newData.child('hostUid').val() == auth.uid && newData.child('status').val() == 'waiting'",
-      ".validate": "newData.hasChildren(['hostUid','status','createdAt','durationMs','state'])",
+      ".validate": "newData.hasChildren(['hostUid','status','createdAt','matchType','durationMs','state'])",
       "hostUid": { ".validate": "newData.isString()" },
       "guestUid": { ".write": "auth != null && !data.exists() && data.parent().child('status').val() == 'waiting' && newData.val() == auth.uid", ".validate": "newData.isString()" },
       "status": { ".write": "auth != null && data.val() == 'waiting' && newData.val() == 'playing' && newData.parent().child('guestUid').val() == auth.uid", ".validate": "newData.val() == 'waiting' || newData.val() == 'playing'" },
       "createdAt": { ".validate": "newData.isNumber()" },
+      "matchType": { ".validate": "newData.val() == 'timed' || newData.val() == 'survival'" },
       "durationMs": { ".validate": "newData.isNumber() && newData.val() >= 60000 && newData.val() <= 600000" },
       "startsAt": { ".write": "auth != null && !data.exists() && data.parent().child('guestUid').val() == auth.uid", ".validate": "newData.isNumber()" },
       "state": {
