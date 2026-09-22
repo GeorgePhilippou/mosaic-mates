@@ -2,7 +2,7 @@
 
 An original, iPad-first block-placement puzzle inspired by the satisfying spatial planning of modern block games.
 
-## Prototype 0.9
+## Prototype 0.10
 
 - 8×8 board and three-shape tray
 - Drag shapes directly onto the board, with centred tap placement as a fallback

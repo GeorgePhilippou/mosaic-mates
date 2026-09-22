@@ -11,7 +11,8 @@
       "createdAt": { ".validate": "newData.isNumber()" },
       "matchType": { ".validate": "newData.val() == 'timed' || newData.val() == 'survival'" },
       "durationMs": { ".validate": "newData.isNumber() && newData.val() >= 60000 && newData.val() <= 600000" },
-      "startsAt": { ".write": "auth != null && !data.exists() && data.parent().child('guestUid').val() == auth.uid", ".validate": "newData.isNumber()" },
+      "startsAt": { ".write": "auth != null && ((!data.exists() && data.parent().child('guestUid').val() == auth.uid) || ((data.parent().child('hostUid').val() == auth.uid || data.parent().child('guestUid').val() == auth.uid) && data.parent().child('status').val() == 'playing' && newData.parent().child('round').val() == (data.parent().child('round').exists() ? data.parent().child('round').val() + 1 : 2)))", ".validate": "newData.isNumber()" },
+      "round": { ".write": "auth != null && (data.parent().child('hostUid').val() == auth.uid || data.parent().child('guestUid').val() == auth.uid) && newData.isNumber() && newData.val() == (data.exists() ? data.val() + 1 : 2)", ".validate": "newData.isNumber() && newData.val() >= 1" },
       "state": {
         ".write": "auth != null && (data.parent().child('hostUid').val() == auth.uid || data.parent().child('guestUid').val() == auth.uid || newData.parent().child('hostUid').val() == auth.uid)",
         ".validate": "newData.hasChildren(['mode','boards','trays','playerScores','seed','trayNumbers','combos','clearsSinceMiss','over']) && newData.child('mode').val() == 'online' && newData.child('playerScores/0').isNumber() && newData.child('playerScores/1').isNumber()"
