@@ -27,3 +27,4 @@
 @media(max-height:700px){.screen{padding-top:14px}.score-strip{margin:9px 0}.boards-stage:not(.online){width:min(53vh,430px)}.tray-heading{margin-top:9px}.tray{min-height:80px}.game-header .eyebrow{display:none}}
 @media(max-width:520px){.boards-stage.online{gap:8px;grid-template-columns:minmax(0,.58fr) minmax(0,1fr)}.room-status{grid-template-columns:1fr}.room-code-display{padding:0 0 7px;border-right:0;border-bottom:1px solid rgba(105,227,189,.2)}.room-status-side{flex-wrap:wrap;justify-content:center}.opponent-board{border-radius:13px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+.cell.line-preview{box-shadow:inset 0 0 0 2px rgba(255,200,102,.98),0 0 12px rgba(255,200,102,.34)!important}.cell.preview.line-preview{background:var(--piece-color);opacity:.9}
